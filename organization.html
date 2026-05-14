@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organization</title>
+
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+                .hero-section h2 {
+            font-family: 'Poppins', sans-serif !important;
+            font-size: clamp(2.5rem, 6vw, 3.5rem) !important;
+            color: #0A192F !important; /* FIXED FOREVER */
+            margin-bottom: 1.5rem !important;
+        }
+
+        .hero-section p {
+            font-size: 1.25rem !important;
+            color: #666 !important; /* FIXED FOREVER */
+            max-width: 600px !important;
+            margin: 0 auto 2rem !important;
+            line-height: 1.7 !important;
+        }
+
+        
+        .hero-top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 1rem auto 0 auto;
+            width: 100%;
+        }
+
+        .theme-toggle {
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif !important;
+            font-size: 1rem !important;
+            font-weight: 600 !important; 
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(10, 25, 47, 0.3);
+        }
+
+       
+        body:not([data-theme="dark"]) .theme-toggle {
+            background: #0A192F;
+            color: #FFFFFF;
+        }
+
+        body:not([data-theme="dark"]) .theme-toggle:hover {
+            background: #4da3ff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(77, 163, 255, 0.4);
+        }
+
+       
+        body[data-theme="dark"] .theme-toggle {
+            background: #FFFFFF;
+            color: #0A192F;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        body[data-theme="dark"] .theme-toggle:hover {
+            background: #4da3ff;
+            color: #FFFFFF;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(77, 163, 255, 0.4);
+        }
+
+        
+        .org-main {
+            width: 90%;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .org-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .org-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+                .org-card {
+            background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%) !important;
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid #E2E8F0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .org-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            border-color: #3B82F6;
+        }
+
+                body[data-theme="dark"] .org-card {
+            background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%) !important;
+            border-color: #334155 !important;
+            box-shadow: 0 15px 40px rgba(10, 25, 47, 0.5);
+        }
+
+        body[data-theme="dark"] .org-card:hover {
+            box-shadow: 0 30px 60px rgba(10, 25, 47, 0.7);
+            border-color: #4DA3FF !important;
+        }
+
+                body[data-theme="dark"] .org-card h3,
+        body[data-theme="dark"] .org-card p {
+            color: #F8FAFC !important;
+        }
+
+        body[data-theme="dark"] .org-reps-list a {
+            color: #F8FAFC !important;
+        }
+
+                .org-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #0A192F;
+            transition: color 0.3s ease;
+        }
+
+        .org-card p {
+            color: #64748B;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 0;
+            transition: color 0.3s ease;
+        }
+
+        .org-reps-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .org-reps-list li {
+            margin: 0.75rem 0;
+        }
+
+        .org-reps-list a {
+            display: block;
+            padding: 1.25rem 1rem;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 12px;
+            color: #0A192F;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid #E2E8F0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .org-reps-list a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .org-reps-list a:hover {
+            background: rgba(59, 130, 246, 0.15);
+            transform: translateX(12px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(59, 130, 246, 0.3);
+            border-color: #3B82F6;
+        }
+
+        body[data-theme="dark"] .org-reps-list a {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: #334155;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        body[data-theme="dark"] .org-reps-list a:hover {
+            background: rgba(77, 163, 255, 0.25);
+            box-shadow: 0 12px 30px rgba(77, 163, 255, 0.4);
+            border-color: #4DA3FF;
+        }
+
+        .org-reps-list a:hover::before {
+            left: 100%;
+        }
+
+        .org-reps-list a:active {
+            transform: translateX(8px) scale(1);
+        }
+    </style>
+</head>
+
+<body>
+<div class="page-wrapper">
+
+<header class="header">
+    <div class="header-container">
+        <div class="school-title">
+            <h1>La Concepcion College</h1>
+            <p>Information Technology Division</p>
+        </div>
+    </div>
+
+        <nav class="navbar">
+        <a href="index.html" class="nav-btn">Home</a>
+        <a href="events.html" class="nav-btn">Events</a>
+        <a href="announcements.html" class="nav-btn">Announcements</a>
+        <a href="calendar.html" class="nav-btn">School Calendar</a>
+        <a href="organization.html" class="nav-btn active">Organization</a>
+            </nav>
+</header>
+
+
+<main class="org-main">
+    
+        <section class="hero-section">
+        <h2>ORGANIZATION</h2>
+        <p>Meet IT Division Officers, Reps, & Media Team.</p>
+        
+                <div class="hero-top-bar">
+            <div></div>
+            <button class="theme-toggle" onclick="toggleTheme()">🌓 Toggle Theme</button>
+        </div>
+    </section>
+
+        <div class="org-grid">
+        <!-- Officers Card -->
+        <a href="OFFICERS.html" class="org-card">
+            <h3>Officers</h3>
+            <p>View the officers under IT division.</p>
+        </a>
+
+        
+        <div class="org-card">
+            <h3>Representatives</h3>
+            <ul class="org-reps-list">
+                <li><a href="1st-year-repre.html">1st Year</a></li>
+                <li><a href="2nd-year-repre.html">2nd Year</a></li>
+                <li><a href="3rd-year-repre.html">3rd Year</a></li>
+                <li><a href="4th-year-repre.html">4th Year</a></li>
+            </ul>
+        </div>
+
+                <a href="media.html" class="org-card">
+            <h3>Media Team</h3>
+            <p>View the Media team under IT division.</p>
+        </a>
+    </div>
+
+</main>
+
+</div>
+
+
+<footer class="footer">
+    <p>
+        🌐
+        <a href="https://laconcepcioncollege.com/" target="_blank">
+            www.laconcepcioncollege.com
+        </a>
+    </p>
+    <p>&copy; 2026 La Concepcion College - IT Division</p>
+</footer>
+
+
+<script>
+function toggleTheme() {
+    const body = document.body;
+    if (body.getAttribute('data-theme') === 'dark') {
+        body.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+    } else {
+        body.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+    }
+}
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    if (savedTheme === 'dark') {
+        document.body.setAttribute('data-theme', 'dark');
+    }
+});
+</script>
+
+</body>
+</html>

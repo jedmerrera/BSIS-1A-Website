@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1st Year Representatives</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --deep-blue: #0A192F;
+    --light-gray: #F5F7FA;
+    --white: #FFFFFF;
+    --text-dark: #1F2933;
+    --link-blue: #007BFF;
+    --link-hover: #0056B3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--white); /* Changed to white */
+    color: var(--text-dark);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    scroll-behavior: smooth;
+}
+
+.page-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    background-color: var(--deep-blue);
+    color: var(--white);
+}
+
+.header-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+    padding: 30px 0 20px; /* EXACT SAME SIZE FROM FIRST CODE */
+}
+
+.school-title h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 42px;
+    color: var(--white);
+    margin: 0;
+}
+
+.school-title p {
+    font-size: 18px;
+    color: var(--light-gray);
+    margin-top: 5px;
+}
+
+.navbar {
+    background-color: #081423;
+    text-align: center;
+    padding: 15px 0; /* EXACT SAME SIZE FROM FIRST CODE */
+}
+
+.nav-btn {
+    color: var(--white);
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: 0.3s;
+    display: inline-block;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.nav-btn:hover {
+    background-color: rgba(255,255,255,0.1);
+    color: #4da3ff;
+}
+
+.nav-btn.active {
+    border-bottom: 2px solid #4da3ff;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px; /* MATCHED TO FIRST CODE */
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Poppins', sans-serif;
+    color: var(--deep-blue);
+}
+
+h2 {
+    font-size: 34px;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.intro {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.reps-grid {
+    display: grid;
+    grid-template-areas: 
+        "card1 card2 card3"
+        ". card4 card5";
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 2rem;
+    margin-bottom: 40px;
+    justify-items: center;
+}
+
+.card {
+    background: var(--deep-blue) !important; /* Matches header color */
+    color: var(--white);
+    border-radius: 24px;
+    padding: 0;
+    box-shadow: 0 20px 40px rgba(10, 25, 47, 0.3);
+    border: 2px solid rgba(255,255,255,0.1);
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    width: 320px;
+    max-width: 100%;
+}
+
+.card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 30px 60px rgba(10, 25, 47, 0.4);
+    border-color: rgba(255,255,255,0.2);
+}
+
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card:hover img {
+    transform: scale(1.05);
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+.card h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--white);
+    margin: 0;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.card h3 span {
+    display: block;
+    font-weight: 500;
+    color: #E2E8F0;
+    font-size: 0.95rem;
+    margin-top: 0.25rem;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.card:nth-child(1) { grid-area: card1; }
+.card:nth-child(2) { grid-area: card2; }
+.card:nth-child(3) { grid-area: card3; }
+.card:nth-child(4) { grid-area: card4; }
+.card:nth-child(5) { grid-area: card5; }
+
+.buttons-container {
+    text-align: center;
+    margin-top: 40px;
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.action-button {
+    display: inline-block;
+    background-color: var(--deep-blue);
+    color: var(--white);
+    padding: 12px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 500;
+    box-shadow: 0 5px 15px rgba(10, 25, 47, 0.4);
+    border: 2px solid rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    position: relative;
+    overflow: hidden;
+}
+
+.action-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(10, 25, 47, 0.6);
+    border-color: rgba(255,255,255,0.2);
+    background-color: var(--link-hover);
+}
+
+.action-button:active {
+    transform: translateY(0);
+}
+
+#backToTop {
+    background: linear-gradient(135deg, #1e3a8a, var(--deep-blue));
+    box-shadow: 0 5px 15px rgba(30, 58, 138, 0.5);
+}
+
+#backToTop:hover {
+    box-shadow: 0 10px 25px rgba(30, 58, 138, 0.7);
+}
+
+.footer {
+    background-color: var(--deep-blue);
+    color: var(--white);
+    text-align: center;
+    padding: 25px 0; /* EXACT SAME SIZE FROM FIRST CODE */
+    font-size: 14px;
+    margin-top: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer a {
+    color: #4da3ff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+    color: var(--white);
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        padding: 20px 0 15px; /* EXACT SAME RESPONSIVE SIZE */
+    }
+    
+    .school-title h1 {
+        font-size: 32px;
+    }
+    
+    .navbar {
+        padding: 10px 0; /* EXACT SAME RESPONSIVE SIZE */
+    }
+    
+    .nav-btn {
+        margin: 0 5px;
+        padding: 8px 12px;
+        font-size: 0.9rem;
+        display: block;
+        margin: 5px 0;
+    }
+    
+    .reps-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "card1"
+            "card2"
+            "card3"
+            "card4"
+            "card5";
+        width: 95%;
+        grid-gap: 1.5rem;
+    }
+}
+
+@media (max-width: 1200px) {
+    .reps-grid {
+        grid-template-areas: 
+            "card1 card2 card3"
+            "card4 card5 .";
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media (max-width: 900px) {
+    .reps-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+            "card1 card2"
+            "card3 card4"
+            "card5 .";
+        grid-gap: 1.5rem;
+    }
+    
+    .card {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+</style>
+</head>
+
+<body>
+<div class="page-wrapper">
+
+<header class="header">
+    <div class="header-container">
+        <div class="school-title">
+            <h1>La Concepcion College</h1>
+            <p>Information Technology Division</p>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-btn">Home</a>
+        <a href="events.html" class="nav-btn">Events</a>
+        <a href="announcements.html" class="nav-btn">Announcements</a>
+        <a href="calendar.html" class="nav-btn">School Calendar</a>
+        <a href="organization.html" class="nav-btn active">Organization</a>
+    </nav>
+</header>
+
+<main class="container">
+    <div class="intro">
+        <h2>BSIS 1ST YEAR REPRESENTATIVES</h2>
+        <p>Meet your dedicated BSIS 1st Year Class Representatives</p>
+    </div>
+
+    <div class="reps-grid">
+        <!-- Card 1 -->
+        <div class="card">
+            <img src="https://lh3.googleusercontent.com/rd-d/ALs6j_FtQKgSGGI6U0YN7ILRfDHaq79mqzgmKFfXDAeKdCUHGuQ-xbsF4byNMiX3Y9FEjrlqxeH-ywAEb_Rp-b27zNhiEJHF5rVnpgRtfdREngTu7vbQXUbPb27T-flOv-et24fdGivyT3V6m4j9V2uYDoNCzzMa07ab-oLGWORCS7dt0Ny_5q1efmn1gSmUb4nhtP3JNOSg7rsrCn-9xPI9Anx3gLJKuA8dkcu5I8RCp6FjpzRQUeIJFT44cbh8k47ShRy8V7jK-L1F4om05ndea6CqE6-2JTonxxIDQYWfeuh1X6RAUBt-a8ozP8HRKCvkQV8eLg1Tco7ELgcF0dsY0gU4DexlpPiucbWw10fMXzNK61Zf-2KD9sHrHDbMYoqSnw4m9QtHlaAlD2r9b9cqOrbqf3-j7yfalmoVAMQ97CXOQBFq7WDu43FE7HXgVJXeYPiKaEMR8W8jCUITwsa0UguQ37aqwmZjlVpseiFzIu5NhUpJLoZ4IPEB25nD40qeTHBIT4CFxMNAcMSzeGssbQ314KFPJ9S_sl4_08IAx7tZ_0wUoqo7jooIffQ6LWvAY25tJGKtUpxYAncTmgTgTTB-sDxkemD-nOGuGjxUuS4iRpnlPxFxVUz-x61RvWAHkXuHILSSHE9Gv9b6W4Or6uMDVER-ZANHCILREg3aerHCQzd_augksPChxx3cB-Jh2CDjZfC3VacmhPy6wfV6cP7g_hgqwAH3Ly1NnosLWBj4Lza4CtkxcblczWbnLfU8JNIollo_55697ZTHZzZ0l8JSRbx40D-cWGvai115oH0ihGceiJTX5YI0gs-269_HZjTy-pHQOB6XtFbxexqmJO95XLIl-BuSfmk8HnM82lYkGJNCnFWezt5V_9blBwArsFaPavv4tECQ23yaRSmRpW0tP-kIgT0XNwu8Bs_4Z1CynTI60AJpz7E-aniRrWXantOYCWvKht-Q-OlsWmgTLcWPtPIeltIH8919zuvgwb4qshX3NjPoKR9OWS_8IXKyHWYefRdCoPZhd8UFcKx8M69u2n9UIp8_dplYQIHGOUFE6oUIVfO4SoqMb6mVxn6mJpX0YlFoapvY0RvqJbK0bxz-bu7wtltdI4tiyrJgLbrIdqBk8GDm4AuvoTBBRFK3Wp2Tp_lDX85cWhM40Ska">
+            <div class="card-content">
+                <h3>Izaac Gray D. Cruz <span>1A Representative</span></h3>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card">
+            <img src="https://lh3.googleusercontent.com/rd-d/ALs6j_HoIJ3ZbuUW86lWc7Z_8ZSyEkILTeKIxIpQtRy-SV4hTNfLvreX-ac2iarkTEprfSni2ZtSYG-EAnCl3IMiBumwc4oxYTx6my-KKMmggiEz8qF-b7gCLa1MH8A6LL7qSohP6Mm5M0yJbPyW-ulfGAzR5AJNnqUMLJQo43f-AGUKopiu6-gEARCUmJLw71cfO7ciiyTs2doWm1NZDq6WDZsjZf_8BS7i3G2Gb2N41jFNyqqq787_q9iBb0TfOor-7R03TqfZD9qe2Jnkz0wH80ctjk3r4zmrsRBNROrM9D7fiIknF8iQ55lgrDL6fItQGHYBVIa_p9FmFFwaU-o7T96pzn29L01300xoCmY95X9XM6D6Y3ITUdQOx5-zfewc1DwrDXEGrdH5u9jjYCHuKKYRHxetuRS9KWLcTkYbN6Gd1SMh4tW3Sj3NodQP-yVsZtO4ri81EkvTdouIgVYym5IoCKmhwSe5bJJZeCXl4eB5wsLL2pAJniQ5Lbt1hsR1FMEEqAwWXtkX6sx02JBUS95HQ487cfJjzXUIk3LEm0Y5QQ51bXFQOC2z-HLaoI4hjG6LvDC9P3cjZxUt9C-5vhrh4NAU9N41dMujzHWYqg1kPxeKsKwODG7kIr5Ib4ZO6jGQVC2W8ZE2FdnDqlJvTeblzL390cl_splc7L1iGXSCh4EMpaHVlpguEy9ZIUzjzEpLo1w4zF5jRD-lb1IvS2xkwWfOSVirS79PwVITqhpB_SAMkSYiLyZVWVuwR1deqf8bDjkQfmDxfHQkwur-_5sPAULBgDLtP1WLcjDE7CoAoU6fmHe17ctUKr9hyadF8onATXuO1YhZz1U9JFnOiKeZnAu05L2Sg2Gthnw6NTro6zZJ4_TPT_xRT2pDL_J21XHgtKlV2AgKWXxGB43LYdjBVh9_-r_nS3hcNBYzDwGQmqz-jlNTcoTojGGjcpupP88ArcX0pjFXL6rspCWfPib7Wmp8E9EvG7lMFatweYa9fKKKDRXd_K2xJHgvgAg3kD-yyv1OnxXw2kKCvsMckdDwH9ESGgKXw6x1rwonNnYGCHyojzjHGW82_yB0Ngt_89kza8hUlxs9Hwkrq5M4OARaFGNzI_XowkvizVKnSfGAn11Irin_ZJRNENlSvhLVKlkG81sfJg6gFtc4nZsH">
+            <div class="card-content">
+                <h3>Jullia Vie M. Balais <span>1B Representative</span></h3>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card">
+            <img src="https://lh3.googleusercontent.com/rd-d/ALs6j_EMd2HyFEOxViX7McGsSVxnUppG9Cjme7IiMyu3SJ1Lkv5T9IWAZql1aPDKCNDYN-4KJSOmEcG8RXeM2a-dMPKtMwgc1Fy0WStrkhhdrOG5oUJ9IETFlmyIjlixG4QhzgZaF6WtzuHbc1MDapgOYXMU0H4b7hZfnpXkSZnLszjvRJ-aZBY0u_WKa7UZmiUnr4nkPKh3esV3P1rr-QFXc_XddqyQpPKwhWMaEO8VoBws-Ic1ffPFBvhLjiIU7NLZz2GWBeE52D0Za6UvSqc7LOlSIWWrOBTsDfMmPhTFAzOcn1mG6xWvwXdpbn54WI3A6ZX-McTggA153qmbLXa9-gKfG0174y5beUk7Qt-fuunxGhYCtDWr6lFV-p_P81ajRCUunqZwMINqpB448UysptB-yK_-p7TEskC9kyGwtNTEdfQzB64cnde8krWOLSV3xXBISO4sVcMh62ThX3ZNWQmzVKPCCKonIqD4h3qWeAc45bOLzdWtad9o2JZCGrz-zXOE7zeOQMmq8Hxp816ySSnd9gM5JIgXqu9L4qR1vt7VIAhsgp6YzfW4L4QARK1WjIitr6fDz-lO_63PIvn9Ti03U5nd0CTNe3cAXDUZTWfH8DfOAF845pohR3X7Hgi0xk2NlGMjj-1NVd2RTQA79oNikxPuna9EBjcRKD_UalCbUZpzQsX2pABBrfMvxsi3WzW6c45JikLEqNlixXlHW5WjwNQRMN6duUuODNGscKtXs7O_e87fV0yIG4hMNOCDiUZBgd82z8nnkXTRDetQzToWtsYpbcUlkUpnnuQPTnTVUexfcbxr-mLCIe27MNIjGqLCAczZ7mCDpwf47lc1KXvYCWhJR4hLjEurKg2dSs79VZrZjMmSq8tVRGZaSlq1CTthBuzVJSM-6KYwPoFeChlpkI2T4vphewiRtF0dDVdtxXqfv7PyFeUsm6t2jHZExa_jsUMKeEC4LSNy_pbDPIvgvWTfVBBPTjYYOiLi50fuXjK_FsYBZqYa7TLgn3APnqYPS4w16TyXD5EP83KMGK0DBGL3h2RGsAWHwQj3PAimR6Wa_Vt8ke6TtvENAOlUb3sO6tsM8x9P8GVJhF8hWcls_cby7knANUV-0Apr3flB2LVkvmvcRv1Cc8Yso0t4s0zGawdNJd-QQ1s7B7wb=w488-h365-p-k-nu?auditContext=thumbnail">
+            <div class="card-content">
+                <h3>John Carlo D. Banguilan <span>1C Representative</span></h3>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="card">
+            <img src="https://lh3.googleusercontent.com/rd-d/ALs6j_HSy4KD_2y8D0tzYyeEEQVyTMBNHknXLhNudcMya7YjatoSFnybEd468vVnI1SNEXFCwVTvwzxHKz-nTwX3qqOZil36nl19BvM9086yFKY2mCafD9sTdgixl8eknaiO-S2nynhUAqK55R91ttj3r3GaHtSHcSAmv_u9ksijdxbxLxiC4-gQugfOn0VvLh4PWPdFtz1eELSLthjvvH4g6o8HTyxEyadxzrMA9W5sBe2g0w00aEBCF5Zf92aQBIucXHuO-M67jE3hFDTa_42QtF1RrJswIolGqUzKp9BGZbLYpsow8xQM_rmyE7dWIophtS3NLiaKKjFXuokciWx4TGrwGgFKVxMyopVVMEE7s7zNHx_M8j43R27Lu0TOAHBXznUVcRYDBiCKwXOP_zkpMoQUIe_-CG2Q68_vYxJ8wYNagEBDROlW-zzgstVaCRrgdIa9oCLfF41rqajyg61jVLGnEWHUdTTRhSlwUvrXZC6bCxLFNY69Lw4B6YJfOSU-IqpwrDj1JHXKwSSRsuNtSb2TSGBDm7O2m59wKfO0DHGLrV4XKFeJ0TftBCGDUmPnnUyXSLIPyS6TGH7weTDICa3x9sJn4CuKmNl_wuT68HghBL6vWHqMyAqNvVfQ6M0Z7Rp3LM7iFKNWPOZLDjzRKrjFcBB7BrsF-NXsBnkMWEQ6Xl7FOFNiEaCeSR8CsPo3LfdkhMBPHESmHtYA-9l1saOIiVtIZgUr8kMZEizDHWp0EGoNjVl0SIUgdBAEWM7OXuwo3ZsKft1mANG_02RggADyUttAuWN9mH2ZBwouexgKw90K42wm00N-7kM7n_1MiIQDSxubBZIGywY4qTee3FNAAzNpye3mYv_raPwyoy-fLfZrlr6curcX9CucopqL6H9GMPMOj1kungQ50pf5p3vsaEarNTKlWFu_77s6L_meub_Va8-2xQjfMj46a3Ma7DbVkHNnbDxHa2rAdD5hp1MtsuzX_Svk6-6sMNNk7UvRvYWJc02-j0dsAnB_mv3ED_lBsLVIkHiRBCv7OYlpBOlL9Ybvn3H1_5GbQ9BFNdrk7UQ76W12JHJZECkoBq6wSwN4RM9sCjsXq-2SQ8OlWP-aQ4qgmudESIEXKEhWO3iEio27Buc2OJnGk32DecB0g4JOW7W-TPTCOa1bBI0d">
+            <div class="card-content">
+                <h3>April Joy D. Dematera <span>1D Representative</span></h3>
+            </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="card">
+            <img src="https://lh3.googleusercontent.com/rd-d/ALs6j_HP3ngWL4QuzjEVjcXR1NdNc8MgGwb65wEMdTDM153hdrtJKsAGRIF93kYyZ-Wxvh-ZeVNQhU4iApb-jPxRzsWMG35PfkPD573UOKloLaQQsfBP_rUW03o5UUOtA6TVWVQCTr7gvgI2p495KwnBkMSpoIXT5QCdjHWhMb_pSAj4EPB3CnG-SL6cX0Cv63po4JWtRxfYOs5iB7bMUniT4kG7-oEp-FO8U6UnPzR4S26lYc1Eo2yuf_KKsvUQa3iJq2QdNt07cfegq9pUGm_H9OoJFfq6FMBRoxIbGRvLQcZjRXoUPsWmjrEv8wC5plNUJ-LqjS0iCTqFWqO6pyAE1ZD-_j45IZeF3NJDitihxWZMIUHj8omvlNf1iEEoHFNMNDI0Dn-NfgppHaFQrAefr1HksYrawl5iWA6UwR8w8Gtply4ZJiRGFEMh8LO_9sOyGU6QOncF-byS6bZyV372Mc7ce39ZdNbf3dn5diP1pCy4OWXJXEa-pRHDx4qU3P0sphSs7qeqgZ_EUeNJHtCCXaq89suuCGAfoS0ydXRrUaMnq1Y16BE6wHYd4atwv1aqmL2PaJJ1jQDus-gKU6P4zaezn33UBF3gtxcWxdMpGVfTbsM76hcNx4mg9E7QsZQ0LTm7yK7_vX_assM0PhZwtnPu8qM1xj-WEe30XqYpHkFe2Svxo7RO4WEYjLNn-Jr9kXN80bmBb8pDlb-j2QSbwa35HQHNwy9NysL0ewwa_6XmUYbgY6P5_dhViPBOTrIy97X2BIhXzoDbJ8gW_EkfZkeVoYwx5VpDM_GlI_YHttg4qM8IIp1mKglyGNbBl9KC5W-Zmp5qJFFNfl51300irWgrjvrwbQBbrvs2BcO5O94q2Jg1sg9DBDOrcDWHILuFAalLgB9w2bIBfqtMq-hUVmuSVQSjMtaDG5kdS9a5u-XH65PQffjulFx6nge2nbkJwFuocToLMlBB1nIDzfVWDKWYXdLZzERe8Ca1eC2RYH8DYt8ckgegJVAUnD48UWuIvOlriNNFl-FZYBa0NuxCVbWTddCGJpS95yyUYj4mMDTTJlCVfQIDJXQvpiWHLAAdZH-aPgw3TnmDzBXI2fjlPcW53CCo-8GuSLr-hhvcB8tT_vG9ZHnIYUONHbwFM5xakAS2MATK0jFgc3nTWVJU=w488-h365-p-k-nu?auditContext=thumbnail">
+            <div class="card-content">
+                <h3>Mark Cris G. Mendoza <span>1E Representative</span></h3>
+            </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="card">
+            <img src="https://lh3.googleusercontent.com/rd-d/ALs6j_FKBXO-jPvhh4KOmQGJ7YhZuAXWG2kHEi9xSlm6g65DTOs-OLBBAJH0Y96hHGri4gRe2H26qL4Za3TcVxXYza1cdGHU8Pqre7DiVeJwhTTgksJg_G6d3npjp2xXP5n7XW6eSl_w13UKuh1_pDaq-ha_BZ2jEtITp_EtXfxIOhYSsb3pRnY2I-6HejIj7us3uJDg0V81qen0ivbIosNjy-Z-UUXTysjTPC8hx7JYJ6polLGJkx2JlbV4r9E1sG5heyf27xrNoeHVpiZVgPZzkxeNsmN3L7ddI9PKjMdrNg1WgV_5FHD9-Rfhi2qXR0palwADvyKkHUrtrKwy5bOorY0NJ63iC3V_8fQC_XJ3WfvMlCAQBt7N92Vvnl_LAwvUXrSSr4OT5vMfeoTSdPweT4sstkblu-uyE6dmaA4GlAmMkCyfMqoxK9K2Tk_FXUCUWGqj7ZJwR1Z9qvNP3sRyix0iDRwV2yjHzXKKcfx-OyeJ73ifKeP1xpyEIjT1pB64_zFc_QaW-m9MAlwsqLi_Lfsinhk75TdmeS6h3j5X0MHmM0J2n1pJNRi7fZWDG_Jeg-tKbQx553MsUvnJDKQ7Gjzp8NHtpBMWVd2rIf68XgztVWz8-Vx86mh0pcTjsA-MXnmNWcV12RUOs4-wXg6FOkIn_HlfQjECQVWwrsnfquqivRAwiYiPmjfTe66wQVklCquIjmjp4kqDio96nhDvIBbwiDvLe8cSy5gFDaUOYYXcvlWo9wIFfQ6p4Bu5mVaWRV9Ypo_g76IY4X7xauMrCBakiPYjmG23cs2PEjCTCtGnny_ovAWk0OKqd93k4CGLRV5qoMsnlTSiI-UXtP35LvSIrWDq1C0oMSkfBSTDpJNP8WCvW7zJ6_DdwtUExG94BL8-__7FB13DL5ODWPw6bMc3gHnQDUIrQ88kiNtA30IxWqlTDeqs2C0M2KPkmb0Al2Dlqu8eIlA9Sv8Int6nR99oc43A9wHRw7rEqOGY9yubeYr_Vhk2PO-lfXxvJ-2eL2_fyXd-DnWs_zL1KzdxqvnwuJeCSIpjgJud4UhjrjG_iMMoDO51G4drVPtI8oPcgGr4UmdP5Rkp6tuM2rHpAtmKej6m2Yw9MFzFSiXbiNlUG2Ue-QqgVOVYafW4JJFUdpCsKowncmE5ytGAlN8=w488-h365-p-k-nu?auditContext=thumbnail">
+            <div class="card-content">
+                <h3>Dienn L. Abantao <span>1F Representative</span></h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="buttons-container">
+        <a href="organization.html" class="action-button">
+            ← Back to Organization
+        </a>
+        <a href="#top" class="action-button" id="backToTop">
+            ↑ Back to Top
+        </a>
+    </div>
+</main>
+
+<footer class="footer">
+    <p>
+        🌐 <a href="https://laconcepcioncollege.com/" target="_blank">
+        www.laconcepcioncollege.com</a>
+    </p>
+    <p>&copy; 2026 La Concepcion College - IT Division</p>
+</footer>
+
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const backToTopBtn = document.getElementById('backToTop');
+    
+    if (backToTopBtn) {
+        backToTopBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+});
+</script>
+
+</body>
+</html>

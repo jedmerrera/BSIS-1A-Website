@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+
+  
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+       .events-hero {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            transform: translateY(-50%);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif !important;
+            font-size: 1rem !important;
+            font-weight: 600 !important;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(10, 25, 47, 0.3);
+            z-index: 10;
+        }
+
+        body:not([data-theme="dark"]) .theme-toggle {
+            background: #0A192F;
+            color: #FFFFFF;
+        }
+
+        body:not([data-theme="dark"]) .theme-toggle:hover {
+            background: #4da3ff;
+            transform: translateY(-50%) translateY(-2px);
+            box-shadow: 0 8px 25px rgba(77, 163, 255, 0.4);
+        }
+
+        body[data-theme="dark"] .theme-toggle {
+            background: #FFFFFF;
+            color: #0A192F;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        body[data-theme="dark"] .theme-toggle:hover {
+            background: #4da3ff;
+            color: #FFFFFF;
+            transform: translateY(-50%) translateY(-2px);
+            box-shadow: 0 8px 25px rgba(77, 163, 255, 0.4);
+        }
+
+        .events-hero h2 {
+            font-family: 'Poppins', sans-serif !important;
+            font-size: clamp(2.5rem, 6vw, 3.5rem) !important;
+            color: #0A192F !important;
+            margin-bottom: 1rem !important;
+        }
+
+        .events-hero p {
+            font-size: 1.25rem !important;
+            color: #666 !important;
+            max-width: 600px !important;
+            margin: 0 auto 3rem !important;
+            line-height: 1.7 !important;
+        }
+
+        .events-main {
+            width: 90%;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem; /* Slightly bigger gap between cards */
+            margin-bottom: 2rem; /* Reduced bottom margin */
+        }
+
+        @media (min-width: 768px) {
+            .events-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 3rem; /* Bigger gap on desktop */
+            }
+        }
+
+        .event-card {
+            background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%) !important;
+            padding: 3.5rem 2.5rem; /* Bigger padding */
+            border-radius: 16px; /* Slightly bigger radius */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid #E2E8F0;
+            min-height: 280px; /* Taller minimum height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .event-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            border-color: #3B82F6;
+        }
+
+        body[data-theme="dark"] .event-card {
+            background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%) !important;
+            border-color: #334155 !important;
+            box-shadow: 0 15px 40px rgba(10, 25, 47, 0.5);
+            min-height: 280px; /* Same taller height */
+        }
+
+        body[data-theme="dark"] .event-card:hover {
+            box-shadow: 0 25px 50px rgba(10, 25, 47, 0.6);
+            border-color: #4DA3FF !important;
+        }
+
+        body[data-theme="dark"] .event-card h3,
+        body[data-theme="dark"] .event-card p {
+            color: #F8FAFC !important;
+        }
+
+        .event-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem; /* Slightly bigger */
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            color: #0A192F;
+            transition: color 0.3s ease;
+        }
+
+        .event-card p {
+            color: #64748B;
+            font-size: 1.2rem; /* Slightly bigger */
+            line-height: 1.7;
+            margin-bottom: 0;
+            transition: color 0.3s ease;
+        }
+    </style>
+</head>
+
+<body>
+<div class="page-wrapper">
+
+<header class="header">
+    <div class="header-container">
+        <div class="school-title">
+            <h1>La Concepcion College</h1>
+            <p>Information Technology Division</p>
+        </div>
+    </div>
+
+        <nav class="navbar">
+        <a href="index.html" class="nav-btn">Home</a>
+        <a href="events.html" class="nav-btn active">Events</a>
+        <a href="announcements.html" class="nav-btn">Announcements</a>
+        <a href="calendar.html" class="nav-btn">School Calendar</a>
+        <a href="organization.html" class="nav-btn">Organization</a>
+        
+    </nav>
+</header>
+
+<main class="events-main">
+    
+        <section class="events-hero">
+        <!-- Title + Description -->
+        <h2>EVENTS</h2>
+        <p>Click an event below for details & registration.</p>
+        
+        
+        <button class="theme-toggle" onclick="toggleTheme()">🌓 Toggle Theme</button>
+    </section>
+
+    
+    <div class="events-grid">
+        <!-- Foundation Day Card -->
+        <a href="foundation-day.html" class="event-card">
+            <h3>Foundation Day</h3>
+            <p>Celebrate the rich history and achievements of La Concepcion College.</p>
+        </a>
+
+                <a href="it-week.html" class="event-card">
+            <h3>IT Week</h3>
+            <p>Week-long celebration of technology, innovation, and IT excellence.</p>
+        </a>
+    </div>
+
+</main>
+
+</div>
+
+
+<footer class="footer">
+    <p>
+        🌐 <a href="https://laconcepcioncollege.com/" target="_blank">
+        www.laconcepcioncollege.com</a>
+    </p>
+    <p>&copy; 2026 La Concepcion College - IT Division</p>
+</footer>
+
+
+<script>
+function toggleTheme() {
+    const body = document.body;
+    if (body.getAttribute('data-theme') === 'dark') {
+        body.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+    } else {
+        body.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+    }
+}
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    if (savedTheme === 'dark') {
+        document.body.setAttribute('data-theme', 'dark');
+    }
+});
+</script>
+
+</body>
+</html>

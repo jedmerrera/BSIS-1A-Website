@@ -1,0 +1,42 @@
+body {
+    overflow-x: hidden;
+}
+
+.page-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.event-text p {
+    max-width: 800px;
+    margin: auto;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+.event-date {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.gallery-section {
+    margin: 40px 0;
+}
+
+.gallery-item {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.gallery-img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.back-btn-container {
+    text-align: center;
+    margin-top: 50px;
+}

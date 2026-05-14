@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Officers</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --deep-blue: #0A192F;
+    --light-gray: #F5F7FA;
+    --white: #FFFFFF;
+    --text-dark: #1F2933;
+    --link-blue: #007BFF;
+    --link-hover: #0056B3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--light-gray);
+    color: var(--text-dark);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    scroll-behavior: smooth;
+}
+
+.page-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    background-color: var(--deep-blue);
+    color: var(--white);
+}
+
+.header-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+    padding: 30px 0 20px;
+}
+
+.school-title h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 42px;
+    color: var(--white);
+    margin: 0;
+}
+
+.school-title p {
+    font-size: 18px;
+    color: var(--light-gray);
+    margin-top: 5px;
+}
+
+.navbar {
+    background-color: #081423;
+    text-align: center;
+    padding: 15px 0;
+}
+
+.nav-btn {
+    color: var(--white);
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: 0.3s;
+    display: inline-block;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.nav-btn:hover {
+    background-color: rgba(255,255,255,0.1);
+    color: #4da3ff;
+}
+
+.nav-btn.active {
+    border-bottom: 2px solid #4da3ff;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Poppins', sans-serif;
+    color: var(--deep-blue);
+}
+
+h2 {
+    font-size: 34px;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.intro {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* PROTECH CARDS - SUBTLE DIFFERENCES FROM MEDIA TEAM */
+.protech-card {
+    display: flex;
+    align-items: center;
+    gap: 30px; 
+    background: linear-gradient(145deg, var(--deep-blue), #0f2a47);
+    color: var(--white);
+    padding: 28px;
+    border-radius: 18px;
+    box-shadow: 0 12px 35px rgba(10, 25, 47, 0.35);
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    transition: 0.3s ease;
+    border: 2px solid rgba(77, 163, 255, 0.3);
+    position: relative;
+}
+
+.protech-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #4da3ff, transparent);
+    opacity: 0;
+    transition: 0.3s ease;
+}
+
+.protech-card:hover::before {
+    opacity: 1;
+}
+
+.protech-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 45px rgba(10, 25, 47, 0.45);
+    border-color: #4da3ff;
+}
+
+.protech-info {
+    flex: 1;
+    padding-right: 5px;
+}
+
+.protech-info h2 {
+    font-size: 23px;
+    font-family: 'Poppins', sans-serif;
+    color: var(--white);
+    margin: 0 0 8px 0;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.protech-info .position {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #93c5fd;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-top: 4px;
+    display: block;
+}
+
+.protech-photo {
+    flex: 1;
+    text-align: center;
+}
+
+.protech-photo img {
+    max-width: 190px;
+    width: 100%;
+    height: 190px;
+    border-radius: 16px;
+    border: 4px solid rgba(77, 163, 255, 0.6);
+    box-shadow: 0 10px 30px rgba(77, 163, 255, 0.3);
+    object-fit: cover;
+    transition: 0.3s ease;
+}
+
+.protech-card:hover .protech-photo img {
+    border-color: #4da3ff;
+    box-shadow: 0 12px 35px rgba(77, 163, 255, 0.5);
+    transform: scale(1.03);
+}
+
+/* PRESIDENT HIGHLIGHT */
+.protech-president .protech-card {
+    background: linear-gradient(145deg, var(--deep-blue), #1a365d);
+    border-color: #4da3ff;
+}
+
+.protech-president .protech-info .position {
+    color: #4da3ff;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.buttons-container {
+    text-align: center;
+    margin-top: 40px;
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.action-button {
+    display: inline-block;
+    background-color: var(--deep-blue);
+    color: var(--white);
+    padding: 12px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 500;
+    box-shadow: 0 5px 15px rgba(10, 25, 47, 0.4);
+    border: 2px solid rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    position: relative;
+    overflow: hidden;
+}
+
+.action-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(10, 25, 47, 0.6);
+    border-color: rgba(255,255,255,0.2);
+    background-color: var(--link-hover);
+}
+
+.action-button:active {
+    transform: translateY(0);
+}
+
+#backToTop {
+    background: linear-gradient(135deg, #1e3a8a, var(--deep-blue));
+    box-shadow: 0 5px 15px rgba(30, 58, 138, 0.5);
+}
+
+#backToTop:hover {
+    box-shadow: 0 10px 25px rgba(30, 58, 138, 0.7);
+}
+
+a {
+    color: var(--link-blue);
+}
+
+a:hover {
+    color: var(--link-hover);
+}
+
+.footer {
+    background-color: var(--deep-blue);
+    color: var(--white);
+    text-align: center;
+    padding: 25px 0;
+    font-size: 14px;
+    margin-top: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer a {
+    color: #4da3ff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+    color: var(--white);
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        padding: 20px 0 15px;
+    }
+    
+    .school-title h1 {
+        font-size: 32px;
+    }
+    
+    .navbar {
+        padding: 10px 0;
+    }
+    
+    .nav-btn {
+        margin: 0 5px;
+        padding: 8px 12px;
+        font-size: 0.9rem;
+        display: block;
+        margin: 5px 0;
+    }
+    
+    .protech-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .protech-info {
+        padding-right: 0;
+    }
+    
+    .protech-info h2 {
+        font-size: 21px;
+        margin-bottom: 10px;
+    }
+    
+    .protech-photo img {
+        max-width: 170px;
+        height: 170px;
+    }
+    
+    .container {
+        width: 95%;
+        margin: 20px auto;
+    }
+}
+</style>
+</head>
+
+<body>
+<div class="page-wrapper">
+
+<header class="header">
+    <div class="header-container">
+        <div class="school-title">
+            <h1>La Concepcion College</h1>
+            <p>Information Technology Division</p>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-btn">Home</a>
+        <a href="events.html" class="nav-btn">Events</a>
+        <a href="announcements.html" class="nav-btn">Announcements</a>
+        <a href="calendar.html" class="nav-btn">School Calendar</a>
+        <a href="organization.html" class="nav-btn active">Organization</a>
+    </nav>
+</header>
+
+<main class="container">
+    <div class="intro">
+        <h2>PROTECH OFFICERS</h2>
+        <p>Meet IT Division Officers, Reps, & Media Team.</p>
+    </div>
+
+    <!-- PRESIDENT -->
+    <div class="protech-president">
+        <div class="protech-card">
+            <div class="protech-info">
+                <h2>Jhuztin Drae L. Pagkalinawan</h2>
+                <span class="position">PRESIDENT</span>
+            </div>
+            <div class="protech-photo">
+                <img src="https://drive.google.com/thumbnail?id=138aN5UZ2ooOkFLsVo97AZfDpIlffYQM9" alt="Jhuztin Drae L. Pagkalinawan">
+            </div>
+        </div>
+    </div>
+
+    <!-- VICE PRESIDENTS -->
+    <div class="protech-card">
+        <div class="protech-info">
+            <h2>Teresa Lyka A. Juinio</h2>
+            <span class="position">VICE PRESIDENT INTERNAL</span>
+        </div>
+        <div class="protech-photo">
+            <img src="https://drive.google.com/thumbnail?id=1gJ3jDm536C9rQafaTgvN6BZY07ltPIa2" alt="Teresa Lyka A. Juinio">
+        </div>
+    </div>
+
+    <div class="protech-card">
+        <div class="protech-info">
+            <h2>John Carlo D. Banguilan</h2>
+            <span class="position">VICE PRESIDENT EXTERNAL</span>
+        </div>
+        <div class="protech-photo">
+            <img src="https://drive.google.com/thumbnail?id=11ipQlYuISo8dfUk4efC_Ue9yfAS83DID" alt="John Carlo D. Banguilan">
+        </div>
+    </div>
+
+    <!-- SECRETARY & TREASURER -->
+    <div class="protech-card">
+        <div class="protech-info">
+            <h2>Rheena Rose L. Llose</h2>
+            <span class="position">SECRETARY</span>
+        </div>
+        <div class="protech-photo">
+            <img src="https://drive.google.com/thumbnail?id=1XnD20kkPKiGr__pL45yircPY3FtNA26p" alt="Rheena Rose L. Llose">
+        </div>
+    </div>
+
+    <div class="protech-card">
+        <div class="protech-info">
+            <h2>Mark Cris G. Mendoza</h2>
+            <span class="position">ASSISTANT SECRETARY</span>
+        </div>
+        <div class="protech-photo">
+            <img src="https://drive.google.com/thumbnail?id=1PVLG5p83biONePW70KJZF6yQ-onEk70A" alt="Mark Cris G. Mendoza">
+        </div>
+    </div>
+
+    <div class="protech-card">
+        <div class="protech-info">
+            <h2>Danaya Rose Cantillon</h2>
+            <span class="position">TREASURER</span>
+        </div>
+        <div class="protech-photo">
+            <img src="https://drive.google.com/thumbnail?id=1Qeqoz1xPfMaJmZYB685BZQa5gG9-SoWh" alt="Danaya Rose Cantillon">
+        </div>
+    </div>
+
+    <!-- OTHERS -->
+    <div class="protech-card">
+        <div class="protech-info">
+            <h2>Jullia Vie M. Balais</h2>
+            <span class="position">ASSISTANT TREASURER</span>
+        </div>
+        <div class="protech-photo">
+            <img src="https://drive.google.com/thumbnail?id=10Yk6mPFUs2aOWxucaCnaqAXpNBQQKO99" alt="Jullia Vie M. Balais">
+        </div>
+    </div>
+
+    <div class="protech-card">
+        <div class="protech-info">
+            <h2>John Michael B. Satrain</h2>
+            <span class="position">AUDITOR</span>
+        </div>
+        <div class="protech-photo">
+            <img src="https://drive.google.com/thumbnail?id=1VN_BdFe3qPYI5vW7NEaoV33Q-_RGsbkF" alt="John Michael B. Satrain">
+        </div>
+    </div>
+
+    <div class="protech-card">
+        <div class="protech-info">
+            <h2>Kirsten Jewell I. Sobejana</h2>
+            <span class="position">PUBLIC INFORMATION OFFICER</span>
+        </div>
+        <div class="protech-photo">
+            <img src="https://drive.google.com/thumbnail?id=1guCFI4sBfSikAYmCjByS9jqLJPP4DknV" alt="Kirsten Jewell I. Sobejana">
+        </div>
+    </div>
+
+    <div class="protech-card">
+        <div class="protech-info">
+            <h2>Chelsea Rayne Glynese M. Olavides</h2>
+            <span class="position">PUBLIC RELATIONS OFFICER</span>
+        </div>
+        <div class="protech-photo">
+            <img src="https://drive.google.com/thumbnail?id=1bY_M-ObNbMfMs949dg-343-OWf5bQD72" alt="Chelsea Rayne Glynese M. Olavides">
+        </div>
+    </div>
+
+    <!-- BUTTONS -->
+    <div class="buttons-container">
+        <a href="organization.html" class="action-button">
+            ← Back to Organization
+        </a>
+        <a href="#top" class="action-button" id="backToTop">
+            ↑ Back to Top
+        </a>
+    </div>
+</main>
+
+<footer class="footer">
+    <p>
+        🌐 <a href="https://laconcepcioncollege.com/" target="_blank">
+        www.laconcepcioncollege.com</a>
+    </p>
+    <p>&copy; 2026 La Concepcion College - IT Division</p>
+</footer>
+
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const backToTopBtn = document.getElementById('backToTop');
+    
+    if (backToTopBtn) {
+        backToTopBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+});
+</script>
+
+</body>
+</html>

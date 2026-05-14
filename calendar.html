@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Calendar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="calendar.css">
+    
+    <style>
+                .calendar-hero {
+            text-align: center;
+            margin: 3rem auto 4rem auto; 
+            position: relative;
+            max-width: 1200px;
+            width: 90%;
+            padding: 0 20px;
+        }
+
+        .hero-top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 1rem auto 0 auto;
+            width: 100%;
+        }
+
+        .theme-toggle {
+            background: #0A192F;
+            color: #FFFFFF;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(10, 25, 47, 0.3);
+            font-weight: 500;
+        }
+
+        .theme-toggle:hover {
+            background: #4da3ff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(77, 163, 255, 0.4);
+        }
+
+                .calendar-hero h2 {
+            font-family: 'Poppins', sans-serif !important;
+            font-size: clamp(2.5rem, 6vw, 3.5rem) !important;
+            color: #0A192F !important;
+            margin-bottom: 1rem !important;
+        }
+
+        .calendar-hero p {
+            font-size: 1.25rem !important;
+            color: #666 !important;
+            max-width: 600px !important;
+            margin: 0 auto 0 !important;
+            line-height: 1.7 !important;
+        }
+
+                .calendar-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto 4rem auto;
+            padding: 0 20px;
+        }
+
+        
+        .legend-section {
+            max-width: 1100px;
+            margin: 4rem auto 4rem auto;
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+                .legend-section {
+            background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
+            border: 1px solid #E5E7EB;
+        }
+
+        .legend-title {
+            color: #0A192F;
+        }
+
+        .legend-row {
+            background: rgba(255,255,255,0.8);
+            border: 1px solid #E5E7EB;
+        }
+
+        .legend-row:hover {
+            background: rgba(59, 130, 246, 0.08);
+            border-color: #3B82F6;
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15);
+        }
+
+        .legend-text {
+            color: #1F2937;
+        }
+
+     
+        body[data-theme="dark"] .legend-section {
+            background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%) !important;
+            border: 1px solid #334155 !important;
+            box-shadow: 0 25px 50px rgba(10, 25, 47, 0.6) !important;
+        }
+
+        body[data-theme="dark"] .legend-title {
+            color: #F8FAFC !important;
+        }
+
+        body[data-theme="dark"] .legend-row {
+            background: rgba(255, 255, 255, 0.12) !important;
+            border: 1px solid #334155 !important;
+        }
+
+        body[data-theme="dark"] .legend-row:hover {
+            background: rgba(77, 163, 255, 0.2) !important;
+            border-color: #4DA3FF !important;
+            box-shadow: 0 12px 35px rgba(77, 163, 255, 0.3) !important;
+        }
+
+        body[data-theme="dark"] .legend-text {
+            color: #F8FAFC !important;
+        }
+
+        
+        .legend-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            font-weight: 700;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .legend-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .legend-row {
+            display: flex;
+            align-items: center;
+            padding: 1.25rem 1.5rem;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .legend-color {
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            margin-right: 1.25rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            border: 2px solid rgba(255,255,255,0.9);
+            flex-shrink: 0;
+        }
+
+        .legend-text {
+            margin: 0;
+            font-size: 0.95rem;
+            font-weight: 500;
+            line-height: 1.5;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        
+        .bg-red { background: #EF4444; }
+        .bg-pink { background: #EC4899; }
+        .bg-green { background: #10B981; }
+        .bg-blue { background: #3B82F6; }
+        .bg-darkblue { background: #1E40AF; }
+        .bg-yellow { background: #F59E0B; }
+        .bg-brown { background: #92400E; }
+        .bg-gray { background: #6B7280; }
+
+       
+        @media (max-width: 1100px) {
+            .legend-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .legend-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+        <header class="header">
+        <div class="header-container">
+            <div class="school-title">
+                <h1>La Concepcion College</h1>
+                <p>Information Technology Division</p>
+            </div>
+        </div>
+        <nav class="navbar">
+            <a href="index.html" class="nav-btn">Home</a>
+            <a href="events.html" class="nav-btn">Events</a>
+            <a href="announcements.html" class="nav-btn">Announcements</a>
+            <a href="calendar.html" class="nav-btn active">School Calendar</a>
+            <a href="organization.html" class="nav-btn">Organization</a>
+                    </nav>
+    </header>
+
+        <section class="calendar-hero">
+        <h2>SCHOOL CALENDAR</h2>
+        <p>Academic Calendar of La Concepcion College</p>
+        
+        
+        <div class="hero-top-bar">
+            <div></div>
+            <button class="theme-toggle" onclick="toggleTheme()">🌓 Toggle Theme</button>
+        </div>
+    </section>
+
+       <div class="calendar-container" id="calendar-container"></div>
+
+    
+    <section class="legend-section">
+        <h3 class="legend-title">📊 Color Legend</h3>
+        
+        <div class="legend-grid">
+            <div class="legend-row">
+                <span class="legend-color bg-red"></span>
+                <span class="legend-text">Red - Holidays / Important Dates</span>
+            </div>
+
+            <div class="legend-row">
+                <span class="legend-color bg-pink"></span>
+                <span class="legend-text">Pink - School Celebrations / Events</span>
+            </div>
+
+            <div class="legend-row">
+                <span class="legend-color bg-green"></span>
+                <span class="legend-text">Green - Examinations</span>
+            </div>
+
+            <div class="legend-row">
+                <span class="legend-color bg-blue"></span>
+                <span class="legend-text">Blue - Special Activities / Foundation Events</span>
+            </div>
+
+            <div class="legend-row">
+                <span class="legend-color bg-darkblue"></span>
+                <span class="legend-text">Dark Blue - Deadlines / Submission Dates</span>
+            </div>
+
+            <div class="legend-row">
+                <span class="legend-color bg-yellow"></span>
+                <span class="legend-text">Yellow - Department Week Activities</span>
+            </div>
+
+            <div class="legend-row">
+                <span class="legend-color bg-brown"></span>
+                <span class="legend-text">Brown - Celebration Week / CAD Week</span>
+            </div>
+
+            <div class="legend-row">
+                <span class="legend-color bg-gray"></span>
+                <span class="legend-text">Gray - Installment / Payment Schedule</span>
+            </div>
+        </div>
+    </section>
+
+       <footer class="footer">
+        <p>🌐 <a href="https://laconcepcioncollege.com/" target="_blank">www.laconcepcioncollege.com</a></p>
+        <p>&copy; 2026 La Concepcion College - IT Division</p>
+    </footer>
+
+        <script src="calendar.js"></script>
+
+        <script>
+    function toggleTheme() {
+        const body = document.body;
+        if (body.getAttribute('data-theme') === 'dark') {
+            body.removeAttribute('data-theme');
+            localStorage.setItem('theme', 'light');
+        } else {
+            body.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+        }
+    }
+
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme === 'dark') {
+            document.body.setAttribute('data-theme', 'dark');
+        }
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Media Team</title>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --deep-blue: #0A192F;
+    --light-gray: #F5F7FA;
+    --white: #FFFFFF;
+    --text-dark: #1F2933;
+    --link-blue: #007BFF;
+    --link-hover: #0056B3;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--light-gray);
+    color: var(--text-dark);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    scroll-behavior: smooth;
+}
+
+
+.page-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.header {
+    background-color: var(--deep-blue);
+    color: var(--white);
+}
+
+.header-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+    padding: 30px 0 20px;
+}
+
+.school-title h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 42px;
+    color: var(--white);
+    margin: 0;
+}
+
+.school-title p {
+    font-size: 18px;
+    color: var(--light-gray);
+    margin-top: 5px;
+}
+
+
+.navbar {
+    background-color: #081423;
+    text-align: center;
+    padding: 15px 0;
+}
+
+.nav-btn {
+    color: var(--white);
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: 0.3s;
+    display: inline-block;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.nav-btn:hover {
+    background-color: rgba(255,255,255,0.1);
+    color: #4da3ff;
+}
+
+.nav-btn.active {
+    border-bottom: 2px solid #4da3ff;
+}
+
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Poppins', sans-serif;
+    color: var(--deep-blue);
+}
+
+h2 {
+    font-size: 34px;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.intro {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: ;
+    gap: 30px; 
+    background: var(--deep-blue) !important;
+    color: var(--white);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(10, 25, 47, 0.3);
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    transition: 0.3s ease;
+    border: 2px solid rgba(255,255,255,0.1);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(10, 25, 47, 0.4);
+    border-color: rgba(255,255,255,0.2);
+}
+
+.info {
+    flex: 1;
+    padding-right: 5px; }
+
+.info h2 {
+    font-size: 22px;
+    font-family: 'Poppins', sans-serif;
+    color: var(--white);
+    margin: 0 0 5px 0; 
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.info p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #E2E8F0;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    margin-top: 2px; 
+}
+
+.info strong {
+    color: var(--white);
+}
+
+.image-container {
+    flex: 1;
+    text-align: center;
+}
+
+.image-container img {
+    max-width: 200px;
+    width: 100%;
+    border-radius: 15px;
+    border: 4px solid rgba(255,255,255,0.9);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+
+.buttons-container {
+    text-align: center;
+    margin-top: 40px;
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.action-button {
+    display: inline-block;
+    background-color: var(--deep-blue);
+    color: var(--white);
+    padding: 12px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 500;
+    box-shadow: 0 5px 15px rgba(10, 25, 47, 0.4);
+    border: 2px solid rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    position: relative;
+    overflow: hidden;
+}
+
+.action-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(10, 25, 47, 0.6);
+    border-color: rgba(255,255,255,0.2);
+    background-color: var(--link-hover);
+}
+
+.action-button:active {
+    transform: translateY(0);
+}
+
+#backToTop {
+    background: linear-gradient(135deg, #1e3a8a, var(--deep-blue));
+    box-shadow: 0 5px 15px rgba(30, 58, 138, 0.5);
+}
+
+#backToTop:hover {
+    box-shadow: 0 10px 25px rgba(30, 58, 138, 0.7);
+}
+
+
+a {
+    color: var(--link-blue);
+}
+
+a:hover {
+    color: var(--link-hover);
+}
+
+
+.footer {
+    background-color: var(--deep-blue);
+    color: var(--white);
+    text-align: center;
+    padding: 25px 0;
+    font-size: 14px;
+    margin-top: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer a {
+    color: #4da3ff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+    color: var(--white);
+}
+
+
+@media (max-width: 768px) {
+    .header-container {
+        padding: 20px 0 15px;
+    }
+    
+    .school-title h1 {
+        font-size: 32px;
+    }
+    
+    .navbar {
+        padding: 10px 0;
+    }
+    
+    .nav-btn {
+        margin: 0 5px;
+        padding: 8px 12px;
+        font-size: 0.9rem;
+        display: block;
+        margin: 5px 0;
+    }
+    
+    .card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .info {
+        padding-right: 0;
+    }
+    
+    .info h2 {
+        font-size: 20px;
+        margin-bottom: 8px;
+    }
+    
+    .container {
+        width: 95%;
+        margin: 20px auto;
+    }
+}
+</style>
+</head>
+
+<body>
+<div class="page-wrapper">
+
+<header class="header">
+    <div class="header-container">
+        <div class="school-title">
+            <h1>La Concepcion College</h1>
+            <p>Information Technology Division</p>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-btn">Home</a>
+        <a href="events.html" class="nav-btn">Events</a>
+        <a href="announcements.html" class="nav-btn">Announcements</a>
+        <a href="calendar.html" class="nav-btn">School Calendar</a>
+        <a href="organization.html" class="nav-btn active">Organization</a>
+           </nav>
+</header>
+
+<main class="container">
+    <div class="intro">
+        <h2>MEDIA TEAM</h2>
+        <p>This page introduces the official representatives of Media Team.</p>
+    </div>
+
+        <div class="card">
+        <div class="info">
+            <h2>Teresa Lyka A. Junio</h2>
+            <p><strong>Position:</strong> BSIS3C - Media Head</p>
+        </div>
+        <div class="image-container">
+            <img src="https://drive.google.com/thumbnail?id=1mBRiMw51DbsEN3v6Ke5TVUevueGwr0Ed" alt="Teresa Lyka A. Junio">
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="info">
+            <h2>James Jay J. Mariaca</h2>
+            <p><strong>Position:</strong> BSIS3C - Lead Photographer</p>
+        </div>
+        <div class="image-container">
+            <img src="https://drive.google.com/thumbnail?id=1gzdUwEgjQDf7rrIhmN1Gmv8x9irhuAjJ" alt="James Jay J. Mariaca">
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="info">
+            <h2>Justin L. Faderanga</h2>
+            <p><strong>Position:</strong> BSIS3C - Event Photographer</p>
+        </div>
+        <div class="image-container">
+            <img src="https://drive.google.com/thumbnail?id=1BVY_tgJVPNPVth_3bvTruj16vURI7OBn" alt="Justin L. Faderanga">
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="info">
+            <h2>Michael James D. Raya</h2>
+            <p><strong>Position:</strong> BSIS3C - Pubmat Designer/Page Moderator</p>
+        </div>
+        <div class="image-container">
+            <img src="https://drive.google.com/thumbnail?id=1lzGTiRvFZ1CSFgWx1gwf-etgSwCpQiHg" alt="Michael James D. Raya">
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="info">
+            <h2>Analyn P. Jarme</h2>
+            <p><strong>Position:</strong> BSIS3C - Layout Artist</p>
+        </div>
+        <div class="image-container">
+            <img src="https://drive.google.com/thumbnail?id=1y_f847A9CUfPj_tWeuTug5mZRfXz_KOz" alt="Analyn P. Jarme">
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="info">
+            <h2>Arlene A. Sison</h2>
+            <p><strong>Position:</strong> BSIS1A - Photographer</p>
+        </div>
+        <div class="image-container">
+            <img src="https://drive.google.com/thumbnail?id=1Ffo1EjF6eO0nf2XeJ9PdxV3dyUWbzWwT" alt="Arlene A. Sison">
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="info">
+            <h2>Justine Mae V. Nobresala</h2>
+            <p><strong>Position:</strong> BSIS1E - Photographer</p>
+        </div>
+        <div class="image-container">
+            <img src="https://drive.google.com/thumbnail?id=1WkdwZbCXcQ_GTxYCvWIohnWom5oUNsw1" alt="Justine Mae V. Nobresala">
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="info">
+            <h2>Raivhen Mark T. Dimaano</h2>
+            <p><strong>Position:</strong> BSIS1A - Photographer</p>
+        </div>
+        <div class="image-container">
+            <img src="https://drive.google.com/thumbnail?id=1vQIKARw3Css48Z_nEFxMcvMSpf3Hrw1r" alt="Raivhen Mark T. Dimaano">
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="info">
+            <h2>Krizie May M. Gacul</h2>
+            <p><strong>Position:</strong> BSIS1A - Videographer</p>
+        </div>
+        <div class="image-container">
+            <img src="https://drive.google.com/thumbnail?id=160JVDWB_Jjn_s5Y5FORq7vsZRC8aW4hA" alt="Krizie May M. Gacul">
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="info">
+            <h2>Ahlexis D. Quitomo</h2>
+            <p><strong>Position:</strong> BSIS1A - Video Editor</p>
+        </div>
+        <div class="image-container">
+            <img src="https://drive.google.com/thumbnail?id=18IrUzvNEkBIivux-X8mkoVBP-h1F4nPr" alt="Ahlexis D. Quitomo">
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="info">
+            <h2>John Lenard C. Fetalco</h2>
+            <p><strong>Position:</strong> BSIS2A - Photo Editor</p>
+        </div>
+        <div class="image-container">
+            <img src="https://drive.google.com/thumbnail?id=1jYb95WPLmQcJGfVqfEJ7XbFsHuMuO-gW" alt="John Lenard C. Fetalco">
+        </div>
+    </div>
+
+    <!-- BUTTONS -->
+    <div class="buttons-container">
+        <a href="organization.html" class="action-button">
+            ← Back to Organization
+        </a>
+        <a href="#top" class="action-button" id="backToTop">
+            ↑ Back to Top
+        </a>
+    </div>
+</main>
+
+<footer class="footer">
+    <p>
+        🌐 <a href="https://laconcepcioncollege.com/" target="_blank">
+        www.laconcepcioncollege.com</a>
+    </p>
+    <p>&copy; 2026 La Concepcion College - IT Division</p>
+</footer>
+
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const backToTopBtn = document.getElementById('backToTop');
+    
+    if (backToTopBtn) {
+        backToTopBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+});
+</script>
+
+</body>
+</html>
