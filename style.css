@@ -1,7 +1,4 @@
-/* =========================
-   DESIGN VARIABLES
-========================= */
-:root {
+:root {
     --deep-blue: #0A192F;
     --light-gray: #F5F7FA;
     --white: #FFFFFF;
@@ -11,18 +8,14 @@
     --link-hover: #0056B3;
 }
 
-/* =========================
-   RESET
-========================= */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* =========================
-   BODY
-========================= */
+
 body {
     font-family: 'Inter', sans-serif;
     background-color: var(--light-gray);
@@ -33,16 +26,12 @@ body {
     min-height: 100vh;
 }
 
-/* =========================
-   WRAPPER
-========================= */
+
 .page-wrapper {
     flex: 1;
 }
 
-/* =========================
-   HEADER
-========================= */
+
 .header {
     background-color: var(--deep-blue);
     color: var(--white);
@@ -68,9 +57,7 @@ body {
     margin-top: 5px;
 }
 
-/* =========================
-   NAVBAR
-========================= */
+
 .navbar {
     background-color: #081423;
     text-align: center;
@@ -96,9 +83,7 @@ body {
     border-bottom: 2px solid #4da3ff;
 }
 
-/* =========================
-   MAIN CONTENT
-========================= */
+
 .container {
     width: 90%;
     max-width: 1200px;
@@ -120,9 +105,7 @@ p {
     line-height: 1.7;
 }
 
-/* =========================
-   VISION-MISSION SECTION
-========================= */
+
 .vision-mission {
     background-color: var(--white);
     padding: 30px;
@@ -153,9 +136,7 @@ p {
     color: #8b0000;
 }
 
-/* =========================
-   LINKS
-========================= */
+
 a {
     color: var(--link-blue);
 }
@@ -164,9 +145,7 @@ a:hover {
     color: var(--link-hover);
 }
 
-/* =========================
-   BUTTON
-========================= */
+
 .btn {
     display: inline-block;
     background-color: var(--deep-blue);
@@ -181,9 +160,7 @@ a:hover {
     background-color: var(--link-hover);
 }
 
-/* =========================
-   FOOTER
-========================= */
+
 .footer {
     background-color: var(--deep-blue);
     color: var(--white);
